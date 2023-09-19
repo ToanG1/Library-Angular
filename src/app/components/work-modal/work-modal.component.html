@@ -1,0 +1,35 @@
+<div class="work-modal-container">
+  <div class="work-modal-body">
+    <div class="work-key">{{ work.key! | keyPipe }}</div>
+    <div class="work-info-others">
+      <ul>
+        <li>
+          <p class="work-info-key">Name:</p>
+          <p class="work-info-value">
+            {{
+              work.title?.length! > 30
+                ? work.title?.slice(0, 30) + "..."
+                : work.title || "not updated"
+            }}
+          </p>
+        </li>
+        <li>
+          <p class="work-info-key">Created at:</p>
+          <p class="work-info-value">
+            {{ (work.created?.value! | cDate) || "not updated" }}
+          </p>
+        </li>
+        <li>
+          <p class="work-info-key">Last modified:</p>
+          <p class="work-info-value">
+            {{ (work.last_modified?.value! | cDate) || "not updated" }}
+          </p>
+        </li>
+        <li>
+          <p class="work-info-key">Revision:</p>
+          <p class="work-info-value">{{ work.revision || "not updated" }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

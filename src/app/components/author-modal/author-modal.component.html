@@ -1,0 +1,30 @@
+<div class="author-modal-container">
+  <div class="author-modal-body">
+    <div class="author-key">{{ authorKey }}</div>
+    <div class="author-info-others">
+      <ul>
+        <li>
+          <p class="author-info-key">Name:</p>
+          <p class="author-info-value">{{ data.name || "not updated" }}</p>
+        </li>
+        <li>
+          <p class="author-info-key">Birthday:</p>
+          <p class="author-info-value">
+            {{ (data.birth_date! | sDate) || "not updated" }}
+          </p>
+        </li>
+        <li>
+          <p class="author-info-key">Deathday:</p>
+          <p class="author-info-value">
+            {{ (data.death_date! | sDate) || "-" }}
+          </p>
+        </li>
+        <li>
+          <p class="author-info-key">Revision:</p>
+          <p class="author-info-value">{{ data.revision || "not updated" }}</p>
+        </li>
+      </ul>
+      <a routerLinkActive="active" (click)="OnWorksClick()"> See All Works </a>
+    </div>
+  </div>
+</div>

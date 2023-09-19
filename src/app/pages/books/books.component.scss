@@ -1,0 +1,108 @@
+@use "../../commons/scss/color";
+@use "../../commons/scss/mixin";
+
+.work-container {
+  height: 560px;
+  width: 800px;
+  background-color: color.$s-bg;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  .work-header {
+    display: flex;
+    justify-content: space-between;
+    .work-logo-header {
+      @include mixin.gray-thin-border;
+      width: fit-content;
+      height: fit-content;
+      padding: 10px 40px;
+      color: color.$s-text-color;
+      background-color: color.$dark-gray-color;
+      font-size: 28px;
+      letter-spacing: 4px;
+    }
+    .work-search-container {
+      display: flex;
+      align-items: center;
+      input {
+        border-radius: 10px;
+        border: none;
+        background-color: color.$light-gray-color;
+        padding: 10px 20px;
+        font-size: 18px;
+        margin-right: 20px;
+        color: color.$p-text-color;
+      }
+      input:focus {
+        outline: none;
+      }
+      .mangify-icon {
+        border: none;
+        text-align: center;
+        height: 41px;
+        width: 41px;
+        background-color: color.$light-gray-color;
+        border-radius: calc(44px / 2);
+        font-size: 28px;
+        line-height: 41px;
+        padding-inline: 1px;
+      }
+    }
+  }
+  .works-author-name {
+    height: 30px;
+    width: fit-content;
+    @include mixin.gray-thin-border;
+    background-color: color.$p-bg;
+    padding: 5px 120px 5px 40px;
+    margin-top: 27px;
+    line-height: 40px;
+    font-size: 20px;
+  }
+  .work-body {
+    height: 425px;
+    margin-top: 10px;
+    @include mixin.gray-thin-border;
+    position: relative;
+
+    .author-table {
+      height: 390px;
+    }
+    .author-table::-webkit-scrollbar {
+      display: none;
+      width: 0 !important;
+    }
+    .work-body-footer {
+      overflow: hidden;
+      border-radius: 0 0 10px 10px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      .work-body-nav {
+        position: relative;
+        bottom: -35px;
+        margin-left: -35px;
+        width: calc(100% + 70px);
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        .work-nav-item {
+          height: 70px;
+          width: 70px;
+          border-radius: 35px;
+          border: none;
+          background-color: color.$gray-color;
+        }
+        #work-body-backward-btn {
+        }
+        #work-body-forward-btn {
+        }
+        #work-body-num-nav {
+          font-size: 14px;
+          line-height: 40px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

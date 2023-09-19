@@ -1,0 +1,98 @@
+@use "../../commons/scss/color";
+@use "../../commons/scss/mixin";
+
+.home-container {
+  height: 500px;
+  width: 800px;
+  background-color: color.$s-bg;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  .home-header {
+    display: flex;
+    justify-content: space-between;
+    .home-logo-header {
+      @include mixin.gray-thin-border;
+      width: fit-content;
+      height: fit-content;
+      padding: 10px 40px;
+      color: color.$s-text-color;
+      background-color: color.$dark-gray-color;
+      font-size: 28px;
+      letter-spacing: 4px;
+    }
+    .home-search-container {
+      display: flex;
+      align-items: center;
+      input {
+        border-radius: 10px;
+        border: none;
+        background-color: color.$light-gray-color;
+        padding: 10px 20px;
+        font-size: 18px;
+        margin-right: 20px;
+        color: color.$p-text-color;
+      }
+      input:focus {
+        outline: none;
+      }
+      .mangify-icon {
+        border: none;
+        text-align: center;
+        height: 41px;
+        width: 41px;
+        background-color: color.$light-gray-color;
+        border-radius: calc(44px / 2);
+        font-size: 28px;
+        line-height: 41px;
+        padding-inline: 1px;
+      }
+    }
+  }
+  .home-body {
+    height: 425px;
+    margin-top: 20px;
+    @include mixin.gray-thin-border;
+    position: relative;
+
+    .author-table {
+      height: 390px;
+    }
+    .author-table::-webkit-scrollbar {
+      display: none;
+      width: 0 !important;
+    }
+    .home-body-footer {
+      overflow: hidden;
+      border-radius: 0 0 10px 10px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      .home-body-nav {
+        position: relative;
+        bottom: -35px;
+        margin-left: -35px;
+        width: calc(100% + 70px);
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        .home-nav-item {
+          height: 70px;
+          width: 70px;
+          border-radius: 35px;
+          border: none;
+          background-color: color.$gray-color;
+        }
+        #home-body-backward-btn {
+        }
+        #home-body-forward-btn {
+        }
+        #home-body-num-nav {
+          font-size: 14px;
+          line-height: 40px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "*/": {
+    "target": "https://openlibrary.org/",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

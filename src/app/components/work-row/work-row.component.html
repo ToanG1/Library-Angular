@@ -1,0 +1,16 @@
+<div class="work-row-container">
+  <div class="work-row-content" (click)="OnWorkClick()">
+    <p class="work-info-1">{{ work.key! | keyPipe }}</p>
+    <div class="vertical-line"></div>
+    <p class="work-info-2">
+      {{ work.title != undefined ? work.title : "" }}
+    </p>
+  </div>
+  <app-work-modal
+    class="work-modal"
+    *ngIf="isModalVisible"
+    [isVisible]="isModalVisible"
+    [work]="work"
+    (isVisibleChange)="isVisibleChange($event)"
+  ></app-work-modal>
+</div>

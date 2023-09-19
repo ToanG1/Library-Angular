@@ -1,0 +1,6 @@
+@use "./color.scss";
+
+@mixin gray-thin-border {
+  border-radius: 10px;
+  border: 1px solid color.$p-border-color;
+}

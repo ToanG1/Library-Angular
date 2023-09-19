@@ -1,0 +1,38 @@
+@use "../../commons/scss/mixin.scss";
+@use "../../commons/scss/color.scss";
+
+.author-row-container {
+  width: calc(100% - 30px);
+  height: 60px;
+  margin: 15px;
+  @include mixin.gray-thin-border;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  p {
+    color: color.$p-text-color;
+    text-align: center;
+    overflow: hidden;
+  }
+  .author-info-1 {
+    width: 15%;
+  }
+  .author-info-2 {
+    width: 35%;
+  }
+  .author-info-3 {
+    width: 50%;
+  }
+
+  .vertical-line {
+    height: 60px;
+    width: 1px;
+    background-color: color.$p-border-color;
+  }
+}
+.author-modal {
+  position: absolute;
+  right: -240px;
+  top: -120px;
+}

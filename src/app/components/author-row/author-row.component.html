@@ -1,0 +1,20 @@
+<div>
+  <div class="author-row-container" (click)="OnAuthorClick()">
+    <p class="author-info-1">{{ author.key }}</p>
+    <div class="vertical-line"></div>
+    <p class="author-info-2">
+      {{ author.name != undefined ? author.name : "" }}
+    </p>
+    <div class="vertical-line"></div>
+    <p class="author-info-3">
+      {{ author.top_work != undefined ? author.top_work : "" }}
+    </p>
+    <app-author-modal
+      class="author-modal"
+      *ngIf="isModalVisible"
+      [authorKey]="author.key"
+      [isVisible]="isModalVisible"
+      (isVisibleChange)="isVisibleChange($event)"
+    ></app-author-modal>
+  </div>
+</div>

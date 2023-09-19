@@ -1,0 +1,44 @@
+<div class="work-container">
+  <div class="work-header">
+    <div class="work-logo-header" routerLink="/">Library</div>
+    <form
+      [formGroup]="searchWorkForm"
+      (ngSubmit)="OnSearchSubmit(searchWorkForm.value)"
+      class="work-search-container"
+    >
+      <input type="text" name="searchString" formControlName="searchString" />
+      <button
+        type="submit"
+        [disabled]="searchWorkForm.invalid"
+        class="mangify-icon"
+      >
+        <mat-icon [inline]="true">search</mat-icon>
+      </button>
+    </form>
+  </div>
+  <div class="works-author-name">
+    {{ author.name }}
+  </div>
+  <div class="work-body">
+    <div class="author-table">
+      <app-work-row *ngFor="let item of works" [work]="item"></app-work-row>
+    </div>
+    <div class="work-body-footer">
+      <div class="work-body-nav">
+        <button
+          (click)="OnWorksBackWard()"
+          id="work-body-backward-btn"
+          class="work-nav-item"
+        ></button>
+        <span id="work-body-num-nav" class="work-nav-item"
+          >{{ currentPage }} / {{ pageFound }}</span
+        >
+        <button
+          (click)="OnWorksForward()"
+          id="work-body-forward-btn"
+          class="work-nav-item"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+@use "../../commons/scss/mixin";
+@use "../../commons/scss/color";
+
+.work-modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+  width: 200px;
+  @include mixin.gray-thin-border;
+  border-radius: 10px;
+  background-color: color.$s-bg;
+
+  .work-modal-body {
+    height: 260px;
+    width: 180px;
+    margin: 10px;
+    .work-key {
+      height: 40px;
+      width: 180px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 18px;
+    }
+    .work-info-others {
+      ul {
+        padding: 0 !important;
+        margin: 0 !important;
+        li {
+          width: 180px;
+          height: fit-content;
+          display: flex;
+          justify-content: space-between;
+          list-style-type: none;
+          p:first-child {
+            text-align: start;
+            margin-right: 5px;
+          }
+          p:last-child {
+            text-align: end;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<div class="home-container">
+  <div class="home-header">
+    <div class="home-logo-header">Library</div>
+    <form
+      [formGroup]="searchAuthorForm"
+      (ngSubmit)="OnSearchSubmit(searchAuthorForm.value)"
+      class="home-search-container"
+    >
+      <input type="text" name="searchString" formControlName="searchString" />
+      <button
+        type="submit"
+        [disabled]="searchAuthorForm.invalid"
+        class="mangify-icon"
+      >
+        <mat-icon [inline]="true">search</mat-icon>
+      </button>
+    </form>
+  </div>
+  <div class="home-body">
+    <div class="author-table">
+      <app-author-row *ngFor="let item of authors" [author]="item">
+      </app-author-row>
+    </div>
+    <div class="home-body-footer">
+      <div class="home-body-nav">
+        <button
+          (click)="OnBackWard()"
+          id="home-body-backward-btn"
+          class="home-nav-item"
+          [disabled]="searchAuthorForm.invalid"
+        ></button>
+        <span id="home-body-num-nav" class="home-nav-item"
+          >{{ currentPage }} / {{ pageFound }}</span
+        >
+        <button
+          (click)="OnForward()"
+          id="home-body-forward-btn"
+          class="home-nav-item"
+          [disabled]="searchAuthorForm.invalid"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
