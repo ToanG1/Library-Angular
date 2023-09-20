@@ -21,6 +21,10 @@
   </div>
   <div class="work-body">
     <div class="work-table">
+      <div class="work-table-header">
+        <p>Key</p>
+        <p>Work Title</p>
+      </div>
       <app-work-row *ngFor="let item of works" [work]="item"></app-work-row>
       <div class="spinner-container" *ngIf="isLoading">
         <app-spinner class="spinner" *ngIf="isLoading"></app-spinner>

@@ -18,6 +18,11 @@
   </div>
   <div class="home-body">
     <div class="author-table">
+      <div class="author-table-header">
+        <p>Key</p>
+        <p>Author Name</p>
+        <p>Top Work</p>
+      </div>
       <app-author-row *ngFor="let item of authors" [author]="item">
       </app-author-row>
       <div class="spinner-container" *ngIf="isLoading">
