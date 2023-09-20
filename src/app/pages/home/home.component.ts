@@ -18,16 +18,18 @@ export class HomeComponent {
   searchString: string = '';
   currentPage: number = 0;
   pageFound: number = 0;
+  isLoading: boolean = false;
 
   constructor(private authorService: AuthorService) {
-    this.searchAuthorForm = new FormGroup({
-      searchString: new FormControl('', Validators.required),
-    });
-    this.searchAuthorForm.valueChanges
-      .pipe(debounceTime(1000), distinctUntilChanged())
-      .subscribe((res) => {
-        this.searchAuthor(res.searchString, 0);
-      });
+    const localData = window.localStorage['authors-data'];
+    if (localData) {
+      this.data = JSON.parse(localData);
+      this.authors = this.data?.docs as DocAboutAuthor[];
+      this.offset = (this.data?.start as number) + limit;
+      this.pageFound = Math.ceil((this.data?.numFound as number) / limit);
+      this.currentPage = this.offset / limit;
+      this.searchString = window.localStorage['searchString'];
+    }
   }
 
   OnSearchSubmit(value: any) {
@@ -47,15 +49,31 @@ export class HomeComponent {
       : null;
   }
   searchAuthor(q: string, o: number) {
+    this.isLoading = true;
     this.authorService.searchAuthor(q, o).subscribe((res: any) => {
       this.data = res;
-      console.log(res);
       this.authors = this.data?.docs as DocAboutAuthor[];
       this.offset = (this.data?.start as number) + limit;
       this.pageFound = Math.ceil((this.data?.numFound as number) / limit);
       this.currentPage = this.offset / limit;
+      this.isLoading = false;
+      window.localStorage.setItem('authors-data', JSON.stringify(this.data));
+      window.localStorage.setItem('searchString', q);
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.searchAuthorForm = new FormGroup({
+      searchString: new FormControl(
+        this.searchString || '',
+        Validators.required
+      ),
+    });
+    this.searchAuthorForm.valueChanges
+      .pipe(debounceTime(1000), distinctUntilChanged())
+      .subscribe((res) => {
+        this.searchString = res.searchString;
+        this.searchAuthor(res.searchString, 0);
+      });
+  }
 }

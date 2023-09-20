@@ -31,6 +31,7 @@ export class BooksComponent {
   searchString: string = '';
   currentPage: number = 0;
   pageFound: number = 0;
+  isLoading: boolean = false;
 
   OnSearchSubmit(value: any) {
     this.searchString = value.searchString;
@@ -52,12 +53,14 @@ export class BooksComponent {
   }
 
   searchWork(q: string, o: number) {
+    this.isLoading = true;
     this.bookService.getWorks(q, o).subscribe((res: any) => {
       this.data = res;
       this.works = this.data?.entries as WorksEntry[];
       this.offset = o + limit;
       this.pageFound = Math.ceil((this.data?.size as number) / limit);
       this.currentPage = this.offset / limit;
+      this.isLoading = false;
     });
   }
 

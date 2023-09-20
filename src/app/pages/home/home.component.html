@@ -20,6 +20,12 @@
     <div class="author-table">
       <app-author-row *ngFor="let item of authors" [author]="item">
       </app-author-row>
+      <div class="spinner-container" *ngIf="isLoading">
+        <app-spinner class="spinner" *ngIf="isLoading"></app-spinner>
+      </div>
+      <div class="author-table-noti" *ngIf="authors.length == 0 && !isLoading">
+        No authors found
+      </div>
     </div>
     <div class="home-body-footer">
       <div class="home-body-nav">

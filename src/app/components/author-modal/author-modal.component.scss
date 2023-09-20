@@ -23,15 +23,24 @@
       font-size: 18px;
     }
     .author-info-others {
+      height: 220px;
       ul {
         padding: 0 !important;
         margin: 0 !important;
+        height: 86%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         li {
           width: 180px;
           height: fit-content;
           display: flex;
           justify-content: space-between;
           list-style-type: none;
+          p {
+            margin: 0;
+            padding: 0;
+          }
           p:first-child {
             text-align: start;
             margin-right: 5px;
@@ -51,6 +60,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 10px;
       }
     }
   }

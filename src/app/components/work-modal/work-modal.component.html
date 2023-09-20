@@ -7,9 +7,7 @@
           <p class="work-info-key">Name:</p>
           <p class="work-info-value">
             {{
-              work.title?.length! > 30
-                ? work.title?.slice(0, 30) + "..."
-                : work.title || "not updated"
+              work.title
             }}
           </p>
         </li>

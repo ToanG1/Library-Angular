@@ -20,8 +20,14 @@
     {{ author.name }}
   </div>
   <div class="work-body">
-    <div class="author-table">
+    <div class="work-table">
       <app-work-row *ngFor="let item of works" [work]="item"></app-work-row>
+      <div class="spinner-container" *ngIf="isLoading">
+        <app-spinner class="spinner" *ngIf="isLoading"></app-spinner>
+      </div>
+      <div class="work-table-noti" *ngIf="works.length == 0 && !isLoading">
+        No works found
+      </div>
     </div>
     <div class="work-body-footer">
       <div class="work-body-nav">

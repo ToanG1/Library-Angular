@@ -17,6 +17,7 @@ import { WorkModalComponent } from './components/work-modal/work-modal.component
 import { StringDatePipe } from './pipes/string-date.pipe';
 import { CdatePipe } from './pipes/cdate.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WorkModalComponent,
     StringDatePipe,
     CdatePipe,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
